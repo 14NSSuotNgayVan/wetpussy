@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+    <div>
+        Nhập Lương: <input type="text" id ="inputluong"  />
+        <button type ="button" id ="btn"  >tính thuế thu nhập</button>
+        Thuế phải nộp: <input type="text" id ="thue"  />
+    </div>
+    <script>
+        let thuethunhap = luong =>{      
+            console.log(luong);       
+            let ttn;
+            if(luong >2000) {ttn = (luong-2000)*0.2 + 500*0.15 + 500*0.1 +500*0.05; }
+            else if(luong > 1500) {ttn = (luong-1500)*0.15 + 500*0.1 + 500*0.05;}
+                else if(luong > 1000) {ttn = (luong-1000)*0.1 +500*0.05;}
+                    else if(luong> 500) {ttn = (luong - 500)*0.005;}
+                        else {ttn = 0;}
+            console.log(ttn);
+            return ttn; 
+
+        }
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                
+                $("#thue").val(thuethunhap($("#inputluong").val())+ "Trieu VND");
+            })
+        })
+    </script>
+</body>
+</html>
